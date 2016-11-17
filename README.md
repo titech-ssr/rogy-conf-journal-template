@@ -6,10 +6,25 @@ $ latexmk book.tex
 ```
 
 ## Put TeX files
-- 原稿ファイルは `sample/sample-article1.tex` を参考に書き、 `main` ディレクトリ以下の適切な場所へ置く。
+- 原稿ファイルは `sample/sample-article1.tex` を参考に書き、適切な場所へ置く。
+  * 原稿ファイルは以下で挙げる必須ファイルと混同しないよう、 `main/` 直下ではなく、サブディレクトリか `articles/` 等の別ディレクトリへ保存することが推奨される。
 - `main/files.tex` の適切な part で `\subfile` によって原稿ファイルをインクルードする。
 
 `main/files.tex` の内容は `sample/files.tex` を参考にして作る。
+
+### 必須ファイル
+- `main/afterword.tex`
+  * あとがき
+- `main/colophon-text.tex`
+  * 奥付ページに、奥付本体以外になにか書くことがあれば書く。
+  * 書くことがなければ、空ファイルを置いておく。
+- `main/files.tex`
+  * 中で各原稿ファイルを `\subfile{}` でインクルードする。
+- `main/frontmatter.tex`
+  * まえがき等。
+- `main/params.sty`
+  * 本のタイトルや発行日等の定数を定義するファイル。
+  * 基本的に、 `sample/params.sty` にoptionalであると明示されているもの以外は全て必須のコマンドなので、内容を適切に設定すること。
 
 ## Branching
 
