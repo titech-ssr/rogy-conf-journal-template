@@ -1,0 +1,57 @@
+% use uplatex.
+% NOTE: `tikz` package requires the `dvipdfmx` driver specification at the global level.
+%\documentclass[a4j,openright,dvipdfmx]{ujbook}
+\documentclass[a4j,openany,dvipdfmx]{ujbook}
+
+% Parameters.
+\usepackage{main/params}
+
+% Packages and styles.
+\usepackage{sty/10-setup}
+\usepackage{sty/20-rogyconf}
+\usepackage{sty/30-styles}
+\usepackage{sty/31-listing-environments}
+\usepackage{sty/31-listing-rust}
+\usepackage{sty/31-admonitions}
+\usepackage{sty/35-code-commands}
+
+
+\title{\booktitle{}}
+\date{}
+\author{\bookauthor{}}
+
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}\null
+\clearpage
+
+\frontmatter
+    \cleardoublepage
+    \include{main/frontmatter}
+
+    \cleardoublepage
+    \pagestyle{rogiken-style-frontmatter}
+    \tableofcontents
+
+    \cleardoublepage
+
+\mainmatter
+    \pagestyle{rogiken-style}
+    \include{main/files}
+
+%\appendix
+    %\cleardoublepage
+    %\include{main/appendix}
+
+\backmatter
+    \renewcommand{\parttitle}{}
+    \cleardoublepage
+    \include{main/afterword}
+    %\printindex
+    \cleartoleftpage
+    \include{colophon}
+
+\end{document}

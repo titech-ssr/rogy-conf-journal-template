@@ -1,0 +1,110 @@
+%
+% Basic packages.
+%
+    %\usepackage[uplatex,jis2004]{otf}
+
+    % provides: color, textcolor, definecolor,colorbox.
+    \usepackage{color}
+
+    % provides: url.
+    % This can be used with hyperref.
+    \usepackage{url}
+
+    % provides: figure, includegraphics.
+    \usepackage{graphicx}
+
+    % provides: lstinline, lstlisting, lstinputlisting, lstlistoflistings.
+    %\usepackage{listings}
+    \usepackage{listings, jlisting}
+
+    % provides: itembox, screen, boxnote, shadebox.
+    \usepackage{ascmac}
+
+    % provides: shadowbox, fbox, doublebox, ovalbox, Ovalbox.
+    \usepackage{fancybox}
+
+    % provides: mdframed, newmdenv, mdfdefinestyle, usetikzlibrary, surroundwithmdframed.
+    \usepackage{tikz}
+    \usepackage[framemethod=tikz]{mdframed}
+    %\usetikzlibrary{}
+    % About pxpgfmark, see http://s-shimotori.hatenablog.com/entry/2015/08/10/164440
+    % and http://tex.stackexchange.com/questions/116642/how-to-use-tikzmark-with-platex .
+    \usepackage{pxpgfmark}
+
+    % provides: footnotemargin.
+    \usepackage[hang]{footmisc}
+    %\usepackage[hang,flushmargin]{footmisc}
+
+    % provides: keys, menu, directory, return, ctrl, (etc).
+    \usepackage{menukeys}
+
+    % provides: uline, uuline, uwave, sout, xout, dotuline, dashuline.
+    %\usepackage[normalem]{ulem}
+
+    % provides: lipsum.
+    \usepackage{lipsum}
+
+%
+% PDF settings.
+%
+    % hyperref provides: url, href, hypertarget, hyperlink.
+    % for uplatex and dvipdfmx.
+    \ifx\kanjiskip\undefined\else
+        \usepackage{atbegshi}
+        \ifx\ucs\undefined
+            \ifnum 42146=\euc"A4A2
+                \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
+            \else
+                \AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+            \fi
+        \else
+            \AtBeginShipoutFirst{\special{pdf:tounicode UTF8-UTF16}}
+        \fi
+        \usepackage[dvipdfmx]{hyperref}
+    \fi
+
+    % Doesn't work correctly (Japanese characters are garbled).
+    %\usepackage[dvipdfmx]{hyperref}
+    %\usepackage{pxjahyper}
+
+    \hypersetup{
+        %bookmarks=true,
+        bookmarksnumbered=true,
+        %bookmarksdepth=subsection,
+        pdftitle={\booktitle{}},
+        pdfauthor={\bookauthor{}},
+        %pdfsubject={subtitle},
+        pdfkeywords={FBX},
+    }
+
+%
+% Separate compilation.
+%
+    % provides: subfile.
+    \usepackage{subfiles}
+
+%
+% Style customization.
+%
+    % Page layout.
+    % provides: geometry.
+    \usepackage{geometry}
+
+    % Title.
+    % provides: titleformat.
+    \usepackage{titlesec}
+    % (`titleps` is part of the `titlesec` distribution.)
+    %\usepackage{titleps}
+
+%
+% Bibtex.
+%
+    % Use biber.
+    %\usepackage[backend=biber,style=numeric]{biblatex}
+
+    %\bibliography{bib/autodesk-fbx}{}
+
+
+% Index.
+    \usepackage{makeidx}
+    \makeindex

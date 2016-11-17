@@ -1,0 +1,50 @@
+%
+% Programming languages
+%
+    % C++ type.
+    \newcommand*{\cpptype}{\lstinline[language=c++,style=inline]}
+    % C++ value (or expr).
+    \newcommand*{\cppexpr}{\lstinline[language=c++,style=inline]}
+    % Rust type.
+    \newcommand*{\rusttype}{\lstinline[language=rust,style=inline]}
+    % Rust value (or expr).
+    \newcommand*{\rustexpr}{\lstinline[language=rust,style=inline]}
+
+
+%
+% Terminal
+%
+    % User input on terminal.
+    \newcommand*{\terminalinput}[1]{\texttt{\underline{#1}}}
+    % Shell prompt and user input.
+    %\makeatletter
+    %\newcommand*{\terminalcommandline}{\begingroup
+        %\obeyspaces
+        %\begingroup\lccode`~=`\ %
+        %\lowercase{\endgroup\let~}\textvisiblespace
+        %\terminalcommandline@body}
+    %\newcommand{\terminalcommandline@body}[1]{\textnormal{{\ttfamily\$ #1}}\endgroup} % string constant
+    %\makeatother
+    \newcommand*{\terminalcommandline}[1]{\texttt{\$ \terminalinput{#1}}}
+    % User input of continued line on terminal.
+    \newcommand*{\terminalcommandlinecont}[1]{\texttt{> \terminalinput{#1}}}
+    % Shell prompt without user input.
+    \newcommand*{\terminalcommandlineempty}{\texttt{\$}}
+    % Comment on terminal.
+    \newcommand*{\terminalcomment}[1]{\textcolor{commentcolor}{\texttt{\# #1}}}
+
+
+%
+% Commands, files, and directories.
+%
+    % Executable command and file path.
+    % Example: `git` and `/bin/sh`.
+    \newcommand*{\executable}[1]{\texttt{#1}}
+    % Commandline that can be executable.
+    % Example: `git commit` and `/bin/sh -c 'echo foobar'`.
+    \newcommand*{\commandline}[1]{\fbox{\texttt{#1}}}
+    % Argument description in natural language.
+    % Usage: `\commandline{git add \commandlinedesc{(your file)}}`.
+    \newcommand*{\commandlinedesc}[1]{\texttt{\underline{#1}}}
+    % Directory path.
+    \renewmenumacro{\directory}{pathswithfolder}

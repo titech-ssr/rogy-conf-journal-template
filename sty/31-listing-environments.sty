@@ -1,0 +1,9 @@
+%\newenvironment{termlogbox}{\begin{screen}}{\end{screen}}
+% `\par` around the itembox environment is required to prevent "Underfull \hbox" warning.
+% For detail, see [boxes - Debugging Friggeri's CV - Underfull \hbox (badness 10000) - TeX - LaTeX
+% Stack Exchange](http://tex.stackexchange.com/questions/193649/debugging-friggeris-cv-underfull-hbox-badness-10000).
+\newenvironment{termlogbox}[1]{
+    \par\begin{itembox}[r]{#1}
+}{
+    \end{itembox}\par
+}

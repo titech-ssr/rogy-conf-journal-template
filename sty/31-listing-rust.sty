@@ -1,0 +1,65 @@
+\lstdefinelanguage{rust}{
+    % keywords: see https://doc.rust-lang.org/grammar.html#keywords .
+    morekeywords=[1]{
+        abstract, alignof, as, become, box, break, const, continue, crate, do,
+        else, enum, extern, false, final, fn, for, if, impl, in,
+        let, loop, macro, match, mod, move, mut, offsetof, override, priv,
+        proc, pub, pure, ref, return, Self, self, sizeof, static, struct,
+        super, trait, true, type, typeof, unsafe, unsized, use, virtual, where,
+        while, yield,
+    },
+    % primitive types: see https://doc.rust-lang.org/std/#primitives .
+    morekeywords=[2]{
+        bool, char, f32, f64, i16, i32, i64, i8, isize, str,
+        u16, u32, u64, u8, usize,
+    },
+    % prelude: see https://doc.rust-lang.org/std/prelude/ .
+    morekeywords=[3]{
+        % std::marker
+        Copy, Send, Sized, Sync
+        % std::ops
+        Drop, Fn, FnMut, FnOnce,
+        % std::mem
+        drop,
+        % std::boxed
+        Box,
+        % std::borrow
+        ToOwned,
+        % std::clone
+        Clone,
+        % std::cmp
+        PartialEq, PartialOrd, Eq, Ord,
+        % std::convert
+        AsRef, AsMut, Into, From,
+        % std::default
+        Default,
+        % std::iter
+        Iterator, Extend, IntoIterator, DoubleEndedIterator, ExactSizeIterator,
+        % std::option
+        Option, Some, None,
+        % std::result
+        Result, Ok, Err,
+        % std::string
+        String, ToString,
+        % std::vec
+        Vec,
+    },
+    % std macros: see https://doc.rust-lang.org/std/#macros .
+    %morekeywords=[4]{
+        %assert!, assert_eq!, cfg!, column!, concat!, debug_assert!, debug_assert_eq!, env!, file!, format!,
+        %format_args!, include!, include_bytes!, include_str!, line!, module_path!, option_env!, panic!, print!, println!,
+        %stringify!, thread_local!, concat_idents!, select!, try!, unimplemented!, unreachable!, vec!, write!, writeln!,
+    %},
+    sensitive=true,
+    morestring=[b]{"},
+    morestring=[s]{b"}{"},
+    morestring=[s]{r\#"}{"\#},
+    morestring=[s]{r\#\#"}{"\#\#},
+    morestring=[s]{r\#\#\#"}{"\#\#\#},
+    morestring=[b]{'},
+    morestring=[s]{b'}{'},
+    morecomment=[l]{///},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    alsoletter={_},
+}

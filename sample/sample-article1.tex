@@ -1,0 +1,40 @@
+\documentclass[../book.tex]{subfiles}
+\begin{document}
+
+\ssrarticle{ぽよぽよを作ってみた}{ぽぽぽ学科 3年}{ぽよ太郎}{ニックネーム的なやつとかtwitter}
+\label{14-poyotaro:ch:create-poyopoyo}
+
+\section{poyo}
+    セクション
+
+    \subsection{subsection}
+        サブセクション
+
+        \subsubsection{subsubsection}
+            サブサブサブサブサブｷｴｪｰｰｰｰｰ!!
+
+\section{ソースコード}
+
+    実行可能コード片
+
+    \noindent\begin{minipage}{\textwidth}\mbox{}
+\begin{lstlisting}[language=rust,style=code,caption={コードの例}]
+vec.shrink_to_fit();  // C++とrustどちらのvectorにもある
+\end{lstlisting}%
+    \end{minipage}
+
+    定義引用
+
+    \noindent\begin{minipage}{\textwidth}\mbox{}
+\begin{lstlisting}[language=c++,style=decleration,caption={宣言の例}]
+size_t  hogeFunction(const Piyo &arg1, size_t arg2=0);
+\end{lstlisting}%
+    \end{minipage}
+
+    \begin{fixme}
+        ほげほげについて書く
+
+        \lstinline[language=tex]|begin{fixme}|を使うと、このように完成原稿に入れてはいけないメモを書いておけます。
+    \end{fixme}
+
+\end{document}

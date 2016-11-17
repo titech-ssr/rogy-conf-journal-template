@@ -1,0 +1,121 @@
+%
+% Slant for Japanese font.
+%
+    % See http://oku.edu.mie-u.ac.jp/~okumura/texfaq/qa/23662.html .
+    \newcommand\Sl[1]{\rotatebox{-47.5191843866487}%
+        {\scalebox{.91575387315498}[1.09204236802396]%
+        {\rotatebox{42.4808156133513}{#1}}}}
+    \newcommand\Sll[1]{\rotatebox{-50.1570524078091}%
+        {\scalebox{.834439293660907}[1.19840952792711]%
+        {\rotatebox{39.8429475921909}{#1}}}}
+    \newcommand\Slll[1]{\rotatebox{-53.051056875993}%
+        {\scalebox{.752157865138252}[1.32950813432788]%
+        {\rotatebox{36.948943124007}{#1}}}}
+    \newcommand\Slt[1]{\rotatebox{-48.0332623624437}%
+        {\scalebox{.899353397751758}[1.11190995942178]%
+        {\rotatebox{41.9667376375563}{#1}}}}
+
+
+%
+% `em` and `emph`.
+%
+    % Use bold font rather than italic font on `em` and `emph`.
+    % No use for uplatex, but this would prevent errors such as:
+    % > LaTeX Font Warning: Font shape `JT2/gt/m/it' undefined
+    % > (Font)              using `JT2/gt/m/n' instead on input line 247.
+    \makeatletter
+    \DeclareRobustCommand{\em}{%
+        \@nomath\em \if b\expandafter\@car\f@series\@nil
+        \normalfont \else \bfseries \fi}
+    \makeatother
+
+
+%
+% Colors.
+%
+    \definecolor{commentcolor}{gray}{0.6}
+
+
+%
+% Monospace font setting for Japanese font.
+%
+    % See http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=1475 .
+    \renewcommand{\ttdefault}{cmtt}
+    \makeatletter
+        \DeclareRobustCommand\ttfamily{%
+            \not@math@alphabet\ttfamily\mathtt
+            \romanfamily\ttdefault
+            \kanjifamily\gtdefault
+            \selectfont}
+    \makeatother
+
+
+%
+% Listing.
+%
+    \lstdefinestyle{basic}{
+        escapeinside={@@<}{>@@},
+        linewidth=\textwidth,
+        % Characters.
+        basewidth=0.5em,
+        basicstyle=\ttfamily,
+        %basicstyle=\linespread{0.85}\ttfamily,
+        keywordstyle=\bfseries,
+        commentstyle=\itshape,
+        % Characters visibility.
+        showspaces=false,
+        %showstringspaces=false,
+        showtabs=false,
+        % Line break.
+        breaklines=true,
+        breakatwhitespace=true,
+        breakautoindent=true,
+    }
+    \lstdefinestyle{decleration}{
+        style=basic,
+        frame=shadowbox,
+        %frameround=tttt,
+        captionpos=b,
+    }
+    \lstdefinestyle{code}{
+        style=basic,
+        frame=topbot,
+        captionpos=b,
+        % Line numbers.
+        numbers=left,
+        %numberstyle=\rmfamily,
+        firstnumber=1,
+        numberfirstline=true,
+        stepnumber=5,
+        numbersep=8pt,
+        commentstyle=\color{commentcolor},
+    }
+    \lstdefinestyle{terminal}{
+        style=basic
+    }
+    \lstdefinestyle{inline}{
+        breakatwhitespace=false
+    }
+    \lstset{
+        style=basic
+    }
+
+
+%
+% Footnote.
+%
+    \renewcommand\thefootnote{*\arabic{footnote}}
+    % Control indent of the footnotes text.
+    \setlength\footnotemargin{15pt}
+
+
+%
+% FIXME box.
+%
+\newmdenv[
+    frametitle=FIXME,
+    roundcorner=8pt,
+    linecolor=red,
+    linewidth=3pt,
+    backgroundcolor=red!10,
+]{fixme}
