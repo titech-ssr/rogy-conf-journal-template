@@ -28,3 +28,20 @@ $ latexmk book.tex
 ### 原稿を書く人
 - 原稿リポジトリの指定されたブランチへ変更を行うだけ。
   * 派生して別のブランチを作って merge しても良い。
+
+## For TeXworks(maybe Windows only)
+- デフォルトのタイプセットに `upLaTeX` がない場合設定する必要がある。
+- TeXworksの左上のラジオボタン編集から設定を開く。
+- タイプセットを選択する。
+- 以下を新規作成(＋印のアイコンをクリック)する。
+```
+名前: upLaTeX(ptex2pdf)
+プログラム: ptex2pdf
+引数: -u
+      -l
+      -ot
+      $synctexoption -no-guess-input-enc -kanji=utf8
+      $fullname
+```
+- エディタに戻りタイプセットを `upLaTeX(ptex2pdf)` に指定して `book.tex` をコンパイル/実行すればよい。
+- cf. [TeXworks/設定](https://texwiki.texjp.org/?TeXworks%2F%E8%A8%AD%E5%AE%9A%2FWindows#r7f9a2a4)
