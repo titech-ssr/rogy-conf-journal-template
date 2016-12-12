@@ -1,5 +1,8 @@
 # Tex temporary files
 *.aux
+*.bbl
+*.bcf
+*.blg
 *.dvi
 *.fdb_latexmk
 *.fls
@@ -8,8 +11,10 @@
 *.ind
 *.log
 *.out
+*.run.xml
 *.synctex.gz
 *.toc
+*.xwm
 
 # Output
 *.pdf
