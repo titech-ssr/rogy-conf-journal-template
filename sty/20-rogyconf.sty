@@ -82,8 +82,15 @@
 
 % #1: Article title.
 \newcommand\ssrarticle[4]{%
-    % Section number is normally counted from 1.
+    % Reset counters.
+    %   Section number is normally counted from 1.
     \setcounter{section}{0}
+    \setcounter{figure}{0}
+    \setcounter{table}{0}
+    \setcounter{footnote}{0}
+    \setcounter{mpfootnote}{0}
+    \setcounter{equation}{0}
+    \setcounter{lstlisting}{0}
     %\chapter{#1}
     % `\chapter*` doesn't change chapter title variable and doesn't increment chapter number.
     \chapter*{#1}
