@@ -1,0 +1,29 @@
+\setcounter{secnumdepth}{2}
+
+% #1: Article title.
+\newcommand\ssrarticle[4]{%
+    % Reset counters.
+    %   Section number is normally counted from 1.
+    %\setcounter{section}{0}
+    \setcounter{figure}{0}
+    \setcounter{table}{0}
+    \setcounter{footnote}{0}
+    \setcounter{mpfootnote}{0}
+    \setcounter{equation}{0}
+    \setcounter{lstlisting}{0}
+    \title{#1}
+    \author{#3}
+
+    \maketitle
+}
+
+% Hide chapter number.
+%\renewcommand\thesection{\arabic{section}}
+
+% 1 in = 72 pt
+\geometry{nomarginpar, margin=1in}
+
+\newcommand*\cleartoleftpage{%
+    \clearpage
+    \ifodd\value{page}\thispagestyle{empty}\hbox{}\newpage\fi
+}
