@@ -3,22 +3,24 @@
 %\documentclass[a4j,openright,dvipdfmx]{ujbook}
 \documentclass[a4j,openany,dvipdfmx]{ujbook}
 
+\providecommand{\rootpath}{.}
+
 % Parameters.
-\usepackage{main/params}
+\usepackage{\rootpath/main/params}
 % See sty/60-images-color.sty .
 \newif\ifCOLORENABLED
 \COLORENABLEDtrue  % color.
 
 % Packages and styles.
-\usepackage{sty/10-setup}
-\usepackage{sty/20-rogyconf}
-\usepackage{sty/30-styles}
-\usepackage{sty/31-listing-environments}
-\usepackage{sty/31-listing-rust}
-\usepackage{sty/31-admonitions}
-\usepackage{sty/35-code-commands}
-\usepackage{sty/50-math}
-\usepackage{sty/60-images-color}
+\usepackage{\rootpath/sty/10-setup}
+\usepackage{\rootpath/sty/20-rogyconf}
+\usepackage{\rootpath/sty/30-styles}
+\usepackage{\rootpath/sty/31-listing-environments}
+\usepackage{\rootpath/sty/31-listing-rust}
+\usepackage{\rootpath/sty/31-admonitions}
+\usepackage{\rootpath/sty/35-code-commands}
+\usepackage{\rootpath/sty/50-math}
+\usepackage{\rootpath/sty/60-images-color}
 
 
 \title{\booktitle{}}
