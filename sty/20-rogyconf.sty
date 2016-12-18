@@ -61,13 +61,14 @@
 
 
 % About `\titleformat`, see http://latex-community.org/forum/viewtopic.php?p=43151#p43151 .
+% About `\raggedright`, see http://tex.stackexchange.com/questions/161716/overfull-hbox-in-a-custom-section-title .
 \titleformat{\chapter}% Command
     %[display]% shape/type of title
     [hang]% shape/type of title
     {}% formatting commands applied to both label and title
     {po\thechapter po}% chapter number; here set inside an invisible box with a constant width
     {0em}% separation between number and chapter title; we've already covered this with the box
-    {\fontsize{30pt}{32pt}\ttfamily}% additional formatting command for title itself not applied to number
+    {\fontsize{30pt}{32pt}\ttfamily\raggedright}% additional formatting command for title itself not applied to number
 
 \newcommand\localauthor[3]{%
     \begin{flushright}
