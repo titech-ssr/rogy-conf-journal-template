@@ -1,8 +1,16 @@
 # ロボット技術研究会 研究報告書
 
 ## Build pdf
+### Book pdf
 ```
 $ latexmk book.tex
+```
+### Article pdf
+- `poyo.tex`というarticleをpdf化。
+- 'poyo.tex'のあるディレクトリで以下を実行。
+```
+$ uplatex poyo.tex
+$ dvipdfmx poyo.dvi
 ```
 
 ## Put TeX files
@@ -59,4 +67,5 @@ $ latexmk book.tex
       $fullname
 ```
 - エディタに戻りタイプセットを `upLaTeX(ptex2pdf)` に指定して `book.tex` をコンパイル/実行すればよい。
+- article `poyo.tex`をpdf化する場合も同様。
 - cf. [TeXworks/設定](https://texwiki.texjp.org/?TeXworks%2F%E8%A8%AD%E5%AE%9A%2FWindows#r7f9a2a4)
