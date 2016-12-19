@@ -45,6 +45,26 @@
 
 
 %
+% `sf`, `textsf`, `gt`, and `textgt`.
+%
+    % Default `sf`, `textsf` and `sffamily` are applied to only alphanumeric characters,
+    % and `gt`, `textgt` and `gtfamily` are applied to only cjk characters.
+    % Therefore we want to make `sf` and `gt` mean `\sffamily\gtfamily`.
+    \makeatletter
+        \DeclareRobustCommand\sffamily{%
+            \not@math@alphabet\sffamily\mathsf
+            \romanfamily\sfdefault
+            \kanjifamily\gtdefault
+            \selectfont}
+        \DeclareRobustCommand\gtfamily{%
+            \not@math@alphabet\gtfamily\mathgt
+            \romanfamily\sfdefault
+            \kanjifamily\gtdefault
+            \selectfont}
+    \makeatother
+
+
+%
 % Colors.
 %
     \definecolor{commentcolor}{gray}{0.6}
