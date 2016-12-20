@@ -1,0 +1,35 @@
+\thispagestyle{empty}
+
+\input{main/colophon-text}
+
+\vspace*{\stretch{1}}
+
+\begin{minipage}{\textwidth}
+    {\LARGE{\textbf{\booktitle}}}
+
+    \noindent\rule{\textwidth}{0.4pt}\\[\dimexpr-\baselineskip+1mm]
+    \noindent\rule{\textwidth}{0.4pt}
+    \vspace*{-0.5\baselineskip}
+
+    \begin{center}
+        \begin{minipage}{0.95\textwidth}
+            \bookeditioninfo
+
+            \vspace*{\baselineskip}
+
+            % `@{}` removes left padding of the first column.
+            \begin{tabular}{@{}ll}
+                \textbf{著作・発行}     & \bookauthor \\
+                \textbf{連絡先}         & \bookauthorcontact \\
+                \textbf{Web}            & \url{https://www.rogiken.org/} \\
+                \textbf{印刷所}         & \printingoffice \\
+            \end{tabular}
+
+        \end{minipage}
+    \end{center}
+
+    \vspace*{0.5\baselineskip}
+
+    \noindent\rule{\textwidth}{0.4pt}
+
+\end{minipage}

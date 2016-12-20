@@ -1,0 +1,64 @@
+% use uplatex.
+% NOTE: `tikz` package requires the `dvipdfmx` driver specification at the global level.
+%\documentclass[a4j,openright,dvipdfmx]{ujbook}
+\documentclass[a4j,openany,dvipdfmx]{ujbook}
+
+\providecommand{\rootpath}{.}
+
+% Parameters.
+\usepackage{\rootpath/main/params}
+% See sty/60-images-color.sty .
+\newif\ifCOLORENABLED
+\COLORENABLEDfalse  % greyscale.
+
+% Packages and styles.
+\usepackage{\rootpath/sty/10-setup}
+\usepackage{\rootpath/sty/20-rogyconf}
+\usepackage{\rootpath/sty/30-styles}
+\usepackage{\rootpath/sty/31-listing-environments}
+\usepackage{\rootpath/sty/31-listing-rust}
+\usepackage{\rootpath/sty/31-admonitions}
+\usepackage{\rootpath/sty/35-code-commands}
+\usepackage{\rootpath/sty/50-math}
+\usepackage{\rootpath/sty/60-images-color}
+
+
+\title{\booktitle{}}
+\date{}
+\author{\bookauthor{}}
+
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}\null
+\clearpage
+
+\frontmatter
+    \cleardoublepage
+    \include{main/frontmatter}
+
+    \cleardoublepage
+    \pagestyle{rogiken-style-frontmatter}
+    \tableofcontents
+
+    \cleardoublepage
+
+\mainmatter
+    \pagestyle{rogiken-style}
+    \include{main/files}
+
+%\appendix
+    %\cleardoublepage
+    %\include{main/appendix}
+
+\backmatter
+    \renewcommand{\parttitle}{}
+    \cleardoublepage
+    \include{main/afterword}
+    %\printindex
+    \cleartoleftpage
+    \include{colophon}
+
+\end{document}

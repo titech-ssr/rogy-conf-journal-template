@@ -1,0 +1,122 @@
+\setcounter{secnumdepth}{2}
+
+% Save title of each parts into the `\parttitle`.
+\let\Origpart\part
+\newcommand*{\parttitle}{}
+\renewcommand*{\part}[1]{\Origpart{#1}\renewcommand{\parttitle}{#1}}
+
+\newpagestyle{rogiken-style}{%
+    \setheadrule{.4pt}% Header rule
+    %\setfootrule{.4pt}% Footer rule
+    \sethead[\parttitle]% even-left
+            []% even-center
+            []% even-right
+            {}% odd-left
+            {}% odd-center
+            {\chaptertitle}% odd-right
+    \setfoot[]% even-left
+            [\thepage]% even-center
+            []% even-right
+            {}% odd-left
+            {\thepage}% odd-center
+            {}% odd-right
+}
+\pagestyle{rogiken-style}
+
+\newpagestyle{rogiken-style-frontmatter}{%
+    \setheadrule{.4pt}% Header rule
+    %\setfootrule{.4pt}% Footer rule
+    \sethead[]% even-left
+            []% even-center
+            []% even-right
+            {}% odd-left
+            {}% odd-center
+            {\chaptertitle}% odd-right
+    \setfoot[]% even-left
+            [\thepage]% even-center
+            []% even-right
+            {}% odd-left
+            {\thepage}% odd-center
+            {}% odd-right
+}
+% See http://tex.stackexchange.com/a/5789 .
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{rogiken-style-frontmatter}}}
+
+\newpagestyle{rogiken-style-afterword}{%
+    \setheadrule{.4pt}% Header rule
+    %\setfootrule{.4pt}% Footer rule
+    \sethead[]% even-left
+            []% even-center
+            []% even-right
+            {}% odd-left
+            {}% odd-center
+            {あとがき}% odd-right
+    \setfoot[]% even-left
+            [\thepage]% even-center
+            []% even-right
+            {}% odd-left
+            {\thepage}% odd-center
+            {}% odd-right
+}
+
+
+% About `\titleformat`, see http://latex-community.org/forum/viewtopic.php?p=43151#p43151 .
+% About `\raggedright`, see http://tex.stackexchange.com/questions/161716/overfull-hbox-in-a-custom-section-title .
+\titleformat{\chapter}% Command
+    %[display]% shape/type of title
+    [hang]% shape/type of title
+    {}% formatting commands applied to both label and title
+    {po\thechapter po}% chapter number; here set inside an invisible box with a constant width
+    {0em}% separation between number and chapter title; we've already covered this with the box
+    {\fontsize{30pt}{32pt}\ttfamily\raggedright}% additional formatting command for title itself not applied to number
+
+\newcommand\localauthor[3]{%
+    \begin{flushright}
+        #1 \textbf{#2} %
+        % About `\ifx\relax~~~`, see http://tex.stackexchange.com/a/53091 .
+        % NOTE: This doesn't work as expected. Use `&#3&` instead.
+        %\ifx\relax\detokenize{#3}\relax\else(#3)\fi
+        % About `\ifx&#3&`, see http://latex-community.org/forum/viewtopic.php?p=23255&sid=9ba88660f816a9dfff09750de930b66f#p23255 .
+        \ifx&#3&\else(#3)\fi
+    \end{flushright}
+}
+
+% #1: Article title.
+\newcommand\ssrarticle[4]{%
+    % Reset counters.
+    %   Section number is normally counted from 1.
+    \setcounter{section}{0}
+    \setcounter{figure}{0}
+    \setcounter{table}{0}
+    \setcounter{footnote}{0}
+    \setcounter{mpfootnote}{0}
+    \setcounter{equation}{0}
+    \setcounter{lstlisting}{0}
+    %\chapter{#1}
+    % `\chapter*` doesn't change chapter title variable and doesn't increment chapter number.
+    \chapter*{#1}
+    % Add to ToC.
+    \addcontentsline{toc}{chapter}{#1}
+    % Set chapter title manually.
+    \renewcommand{\chaptertitle}{#1}% 
+    % Apply normal page style to the beginning page of the chapter.
+    \thispagestyle{rogiken-style}
+
+    \vspace*{-2\baselineskip}
+    \localauthor{#2}{#3}{#4}
+}
+
+
+% Currently unused because `\chapter*{}` is used and chapter number is not available for articles.
+\renewcommand{\prechaptername}{記事}
+\renewcommand{\postchaptername}{}
+% Hide chapter number.
+\renewcommand\thesection{\arabic{section}}
+
+% 1 in = 72 pt
+\geometry{nomarginpar, margin=1in}
+
+\newcommand*\cleartoleftpage{%
+    \clearpage
+    \ifodd\value{page}\thispagestyle{empty}\hbox{}\newpage\fi
+}

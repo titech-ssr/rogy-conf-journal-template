@@ -1,0 +1,37 @@
+% use uplatex.
+% NOTE: `tikz` package requires the `dvipdfmx` driver specification at the global level.
+%\documentclass[a4j,openright,dvipdfmx]{ujbook}
+\documentclass[a4j,dvipdfmx]{ujarticle}
+
+\providecommand{\rootpath}{.}
+
+% Parameters.
+\usepackage{\rootpath/main/params}
+% See sty/60-images-color.sty .
+\newif\ifCOLORENABLED
+\COLORENABLEDtrue  % color.
+
+% Packages and styles.
+\usepackage{\rootpath/sty/10-setup}
+\usepackage{\rootpath/sty/20-rogyconf-single-article}
+\usepackage{\rootpath/sty/30-styles}
+\usepackage{\rootpath/sty/31-listing-environments}
+\usepackage{\rootpath/sty/31-listing-rust}
+\usepackage{\rootpath/sty/31-admonitions}
+\usepackage{\rootpath/sty/35-code-commands}
+\usepackage{\rootpath/sty/50-math}
+\usepackage{\rootpath/sty/60-images-color}
+
+
+\title{\booktitle{}}
+\date{}
+\author{\bookauthor{}}
+
+
+\begin{document}
+
+dummy text.
+
+%\subfile{\rootpath/articles/14-foo/bar.tex}
+
+\end{document}

@@ -1,0 +1,125 @@
+%
+% Basic packages.
+%
+    %\usepackage[uplatex,jis2004]{otf}
+    % Enable flexible sizing of CM fonts.
+    % See http://qiita.com/zr_tex8r/items/297154ca924749e62471#%E5%AF%BE%E7%AD%96fix-cm%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%82%92%E4%BD%BF%E3%81%86 .
+    \usepackage{fix-cm}
+
+    % provides: color, textcolor, definecolor,colorbox.
+    \usepackage{color}
+
+    % provides: url.
+    % This can be used with hyperref.
+    \usepackage{url}
+
+    % provides: figure, includegraphics.
+    \usepackage[dvipdfmx]{graphicx}
+
+    % provides: lstinline, lstlisting, lstinputlisting, lstlistoflistings.
+    %\usepackage{listings}
+    \usepackage{listings, \rootpath/jlisting}
+
+    % provides: itembox, screen, boxnote, shadebox.
+    \usepackage{ascmac}
+
+    % provides: shadowbox, fbox, doublebox, ovalbox, Ovalbox.
+    \usepackage{fancybox}
+
+    % provides: mdframed, newmdenv, mdfdefinestyle, usetikzlibrary, surroundwithmdframed.
+    \usepackage{tikz}
+    \usepackage[framemethod=tikz]{mdframed}
+    %\usetikzlibrary{}
+    % About pxpgfmark, see http://s-shimotori.hatenablog.com/entry/2015/08/10/164440
+    % and http://tex.stackexchange.com/questions/116642/how-to-use-tikzmark-with-platex .
+    \usepackage{pxpgfmark}
+
+    % provides: footnotemargin.
+    \usepackage[hang]{footmisc}
+    %\usepackage[hang,flushmargin]{footmisc}
+
+    % provides: keys, menu, directory, return, ctrl, (etc).
+    \usepackage{menukeys}
+
+    % provides: uline, uuline, uwave, sout, xout, dotuline, dashuline.
+    %\usepackage[normalem]{ulem}
+
+    % provides: lipsum.
+    \usepackage{lipsum}
+
+%
+% Math packages.
+%
+    % provides: equation.
+    \usepackage{amsmath}
+    % provides: symbolic.
+    \usepackage{amssymb}
+    % provides: mathbb, mathfrak.
+    \usepackage{amsfonts}
+    % provides: mathscr.
+    \usepackage{mathrsfs}
+    % provides: newtheorem.
+    \usepackage{amsthm}
+
+%
+% PDF settings.
+%
+    % hyperref provides: url, href, hypertarget, hyperlink.
+    % for uplatex and dvipdfmx.
+    \ifx\kanjiskip\undefined\else
+        \usepackage{atbegshi}
+        \ifx\ucs\undefined
+            \ifnum 42146=\euc"A4A2
+                \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
+            \else
+                \AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+            \fi
+        \else
+            \AtBeginShipoutFirst{\special{pdf:tounicode UTF8-UTF16}}
+        \fi
+        \usepackage[dvipdfmx]{hyperref}
+    \fi
+
+    % Doesn't work correctly (Japanese characters are garbled).
+    %\usepackage[dvipdfmx]{hyperref}
+    %\usepackage{pxjahyper}
+
+    \hypersetup{
+        %bookmarks=true,
+        bookmarksnumbered=true,
+        %bookmarksdepth=subsection,
+        pdftitle={\booktitle{}},
+        pdfauthor={\bookauthor{}},
+        %pdfsubject={subtitle},
+        pdfkeywords={FBX},
+    }
+
+%
+% Separate compilation.
+%
+    % provides: subfile.
+    \usepackage{subfiles}
+
+%
+% Style customization.
+%
+    % Page layout.
+    % provides: geometry.
+    \usepackage{geometry}
+
+    % Title.
+    % provides: titleformat.
+    \usepackage{titlesec}
+    % (`titleps` is part of the `titlesec` distribution.)
+    %\usepackage{titleps}
+
+%
+% Bibtex.
+%
+    % Use biber.
+    %\usepackage[backend=biber,style=numeric]{biblatex}
+
+
+% Index.
+    \usepackage{makeidx}
+    \makeindex

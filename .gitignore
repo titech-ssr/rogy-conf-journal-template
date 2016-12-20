@@ -1,0 +1,21 @@
+# Tex temporary files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.synctex.gz(busy)
+*.toc
+*.xwm
+
+# Output
+*.pdf
